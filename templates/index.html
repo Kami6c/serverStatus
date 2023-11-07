@@ -12,6 +12,13 @@
             text-align: center;
             border: 2px solid black;
         }
+
+        #up{
+            background-color: green;
+        }
+        #down{
+            background-color: red;
+        }
     </style>
 </head>
 <body>
@@ -35,8 +42,14 @@
         <tr></tr>   
             {%for key, value in serv.items()%}  
                 <td>{{key}}</td> 
-                {%for inner_key, inner_value in value.items()-%}   
-                        <td>{{ inner_value }}</td>
+                {%for inner_key, inner_value in value.items()-%} 
+                                {%if inner_value == False%}
+                                    <td id="down">DOWN</td>  
+                                {%elif inner_value == True%}
+                                    <td id="up">UP</td>
+                                {%else%}
+                                    <td>{{ inner_value }}</td>
+                                {%endif%}
                         {%- endfor%}
                 {%- endfor%}
         {%- endfor%}

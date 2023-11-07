@@ -9,13 +9,13 @@ from pingAll import pingAllServs
 #CLI params
 def shellMode():
     match sys.argv[1]:
-        case "m":
+        case "-m":
             print("Management mode adding server")
             getJson()
             appendToList(str(sys.argv[2]))
             makeJson()
             printServer()
-        case "c":
+        case "-c":
             print("Check server status mode")
             if len(sys.argv) > 3:
                 check = myping(sys.argv[2], int(sys.argv[3]))
@@ -24,11 +24,11 @@ def shellMode():
                 getJsonServInfo()
                 addServerInfo(str(sys.argv[2]), check) 
                 makeJsonServInfo()
-        case "d":
+        case "-d":
             getJson()
             deleteServ()
             makeJson()
-        case "a":
+        case "-a":
             print("test all")
             pingAllServs()
         case _:

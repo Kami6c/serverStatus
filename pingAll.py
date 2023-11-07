@@ -22,7 +22,7 @@ def getJson():
 
 def pingAllServs():
     getJson()
-    for serv in servNames_to_scan: # im getting [{"192.168.129.58": {"Status": true, "Date": "07/11/2023", "Time": "19:19:46"}}]
+    for serv in servNames_to_scan:
         check = myping(serv)
         getJsonServInfo()
         addServerInfo(serv, check)

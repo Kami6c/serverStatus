@@ -1,4 +1,3 @@
-import servers
 from dateNtime import getDate, getTime
 import json
 
@@ -14,7 +13,7 @@ def addServerInfo(host,check):
     curr_date = getDate()
     curr_time = getTime()
     template[host] = {"Status":check, "Date":curr_date, "Time":curr_time}
-    server_info.append(template)#adds to template
+    server_info.append(template)
 
 def printServerInfo():
     for item in server_info:
