@@ -27,8 +27,7 @@ def makeJson():
     with open("serverNames.json", "w") as json_dump:
         json.dump(server_names, json_dump)
 
-def deleteServ():
-    serv_to_delete = input("Server name: ")
+def deleteServ(serv_to_delete):
     if serv_to_delete in server_names:
         server_names.remove(serv_to_delete)
     else:

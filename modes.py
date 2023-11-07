@@ -18,7 +18,7 @@ def shellMode():
         case "-c":
             print("Check server status mode")
             if len(sys.argv) > 3:
-                check = myping(sys.argv[2], int(sys.argv[3]))
+                check = myping(str(sys.argv[2]), int(sys.argv[3]))
             else:
                 check = myping(str(sys.argv[2]))
                 getJsonServInfo()
@@ -26,7 +26,7 @@ def shellMode():
                 makeJsonServInfo()
         case "-d":
             getJson()
-            deleteServ()
+            deleteServ(str(sys.argv[2]))
             makeJson()
         case "-a":
             print("test all")
@@ -36,25 +36,30 @@ def shellMode():
 
 #interactive
 def interactiveMode():
-    print("1 Add new server. 2 Delete a server. 3 Show servers")
-    option = input("Option: ")
-    match option:
-        case '1':
-            print("Adding server")
-            getJson()
-            serverName = input("Server name: ")
-            appendToList(serverName)
-            makeJson()
-        case '2':
-            print("Deleting server")
-            getJson()
-            deleteServ()
-            makeJson()
-        case '3': 
-            getJson()
-            printServer()
-        case 'q':
-            print("Exiting")
-        case _:
-            print("Wrong option")
-
+    while True:   
+        print("1 Add new server. 2 Delete a server. 3 Show servers. 4. Ping all servers. q. Quit")
+        option = input("Option: ")
+        match option:
+            case "1":
+                print("Adding server")
+                getJson()
+                serverName = input("Server name: ")
+                appendToList(serverName)
+                makeJson()
+            case "2":
+                print("Deleting server")
+                getJson()
+                servName = input("Server name: ")
+                deleteServ(servName)
+                makeJson()
+            case "3": 
+                getJson()
+                printServer()
+            case "4":
+                pingAllServs()
+            case "q":
+                print("Exiting")
+                break
+            case _:
+                print("Wrong option")
+        
