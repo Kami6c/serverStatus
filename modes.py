@@ -10,13 +10,11 @@ from pingAll import pingAllServs
 def shellMode():
     match sys.argv[1]:
         case "-m":
-            print("Management mode adding server")
             getJson()
             appendToList(str(sys.argv[2]))
             makeJson()
             printServer()
         case "-c":
-            print("Check server status mode")
             if len(sys.argv) > 3:
                 check = myping(str(sys.argv[2]), int(sys.argv[3]))
             else:
@@ -32,7 +30,6 @@ def shellMode():
             getJson()
             printServer()
         case "-a":
-            print("test all")
             pingAllServs()
         case _:
             print("wrong letter")
@@ -54,10 +51,12 @@ def interactiveMode():
                 servName = input("Server name: ")
                 deleteServ(servName)
                 makeJson()
-            case "3": 
+            case "3":
+                print("Listing servers") 
                 getJson()
                 printServer()
             case "4":
+                print("Pinging all servers")
                 pingAllServs()
             case "q":
                 print("Exiting")
