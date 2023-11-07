@@ -1,7 +1,7 @@
 import sys
 from ping import myping
 from servers import appendToList, makeJson, getJson, printServer, deleteServ
-from serverInfo import addServerInfo, printServerInfo, makeJsonServInfo, getJsonServInfo
+from serverInfo import addServerInfo, makeJsonServInfo, getJsonServInfo
 from pingAll import pingAllServs
 
 
@@ -28,6 +28,9 @@ def shellMode():
             getJson()
             deleteServ(str(sys.argv[2]))
             makeJson()
+        case "-l":
+            getJson()
+            printServer()
         case "-a":
             print("test all")
             pingAllServs()
