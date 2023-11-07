@@ -6,13 +6,13 @@ import json
 server_info = [] 
 
 
-template = {}
+
 
 def addServerInfo(host,check):
+    template = {}
     global server_info
     curr_date = getDate()
     curr_time = getTime()
-    global template
     template[host] = {"Status":check, "Date":curr_date, "Time":curr_time}
     server_info.append(template)#adds to template
 

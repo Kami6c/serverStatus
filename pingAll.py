@@ -5,9 +5,8 @@ from serverInfo import addServerInfo, getJsonServInfo, makeJsonServInfo, printSe
 
 servNames_to_scan = []
 
-templ = {}
 
-def getJsonS():
+def getJson():
     global servNames_to_scan
     try:
         with open("serverNames.json", "r") as json_load:
@@ -23,11 +22,9 @@ def getJsonS():
 
 def pingAllServs():
     getJson()
-    for serv in servNames_to_scan:
+    for serv in servNames_to_scan: # im getting [{"192.168.129.58": {"Status": true, "Date": "07/11/2023", "Time": "19:19:46"}}]
         check = myping(serv)
         getJsonServInfo()
         addServerInfo(serv, check)
         makeJsonServInfo()
    
-
-pingAllServs()
