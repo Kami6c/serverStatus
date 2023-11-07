@@ -5,7 +5,7 @@ from serverInfo import addServerInfo, getJsonServInfo, makeJsonServInfo, printSe
 
 servNames_to_scan = []
 
-
+# Gets file and assigns it to the servNames_to_scan
 def getJson():
     global servNames_to_scan
     try:
@@ -14,12 +14,8 @@ def getJson():
     except:
         print("File not found/File doesn't exists.")
 
-# getJson()
-# print(len(servNames_to_scan))
-# for serv in servNames_to_scan:
-#     print(serv)
 
-
+#Pings all in the servNames_to_scan
 def pingAllServs():
     getJson()
     for serv in servNames_to_scan:

@@ -6,7 +6,7 @@ from pingAll import pingAllServs
 
 
 
-#CLI params
+
 def shellMode():
     match sys.argv[1]:
         case "-m":
@@ -37,7 +37,6 @@ def shellMode():
         case _:
             print("wrong letter")
 
-#interactive
 def interactiveMode():
     while True:   
         print("1 Add new server. 2 Delete a server. 3 Show servers. 4. Ping all servers. q. Quit")
