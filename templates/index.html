@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servers</title>
+    <style>
+        /* .center-table {
+            margin: 0 auto;
+        } */
+        .center-td {
+            text-align: center;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+<!-- [{"google.com": {"Status": true, "Date": "04/11/2023", "Time": "21:31:18"}} -->
+<table>
+    <!-- {"wadsas.com": {"Status": false, "Date": "07/11/2023", "Time": "01:29:35"} -->
+
+    <!-- c -->
+    <!-- [{"192.168.129.58": {"Status": true, "Date": "07/11/2023", "Time": "01:36:28"}}, {"google.com": {"Status": true, "Date": "07/11/2023", "Time": "01:36:44"}}] -->
+    <!-- [{"wadsas.com": {"Status": false, "Date": "07/11/2023", "Time": "01:47:31"}, "google.com": {"Status": true, "Date": "07/11/2023", "Time": "01:47:31"}, "224.0.0.0": {"Status": false, "Date": "07/11/2023", "Time": "01:47:51"}, "192.168.129.58": {"Status": true, "Date": "07/11/2023", "Time": "01:47:51"}}, {"wadsas.com": {"Status": false, "Date": "07/11/2023", "Time": "01:47:31"}, "google.com": {"Status": true, "Date": "07/11/2023", "Time": "01:47:31"}, "224.0.0.0": {"Status": false, "Date": "07/11/2023", "Time": "01:47:51"}, "192.168.129.58": {"Status": true, "Date": "07/11/2023", "Time": "01:47:51"}}, {"wadsas.com": {"Status": false, "Date": "07/11/2023", "Time": "01:47:31"}, "google.com": {"Status": true, "Date": "07/11/2023", "Time": "01:47:31"}, "224.0.0.0": {"Status": false, "Date": "07/11/2023", "Time": "01:47:51"}, "192.168.129.58": {"Status": true, "Date": "07/11/2023", "Time": "01:47:51"}}, {"wadsas.com": {"Status": false, "Date": "07/11/2023", "Time": "01:47:31"}, "google.com": {"Status": true, "Date": "07/11/2023", "Time": "01:47:31"}, "224.0.0.0": {"Status": false, "Date": "07/11/2023", "Time": "01:47:51"}, "192.168.129.58": {"Status": true, "Date": "07/11/2023", "Time": "01:47:51"}}] -->
+    <tr>
+        <td class="center-td">Name</td>
+        {%for key, value in list_of_servers[0].items()%}
+            {%for inner_key, inner_value in value.items()%}         
+                        <td class="center-td">{{ inner_key }}</td> 
+                {%endfor%}
+        {%endfor%}
+    </tr>
+    <tr>
+        {%for serv in list_of_servers%}
+        <tr></tr>   
+            {%for key, value in serv.items()%}  
+                <td>{{key}}</td> 
+                {%for inner_key, inner_value in value.items()-%}   
+                        <td>{{ inner_value }}</td>
+                        {%- endfor%}
+                {%- endfor%}
+        {%- endfor%}
+    </tr>
+    
+
+
+</table>
+
+
+<!-- 
+    {% for server in list_of_servers%}
+    {%for key, value in server.items()%}
+        Server: {{ key }}
+        {%for inner_key, inner_value in value.items()%}
+            {{ inner_key }} {{ inner_value }}
+            {%endfor%}
+        {%endfor%}
+        <br/>
+{%endfor%} -->
+</body>
+</html>
